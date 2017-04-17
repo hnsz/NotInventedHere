@@ -1,5 +1,5 @@
 <?php
 interface IAccessControlServer 
 {	
-	public function hasAccess(IUser $user, IRoute $route);
+	public function hasAccess(IUser $user, Route $route);
 }

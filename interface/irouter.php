@@ -1,5 +1,5 @@
 <?php
 interface IRouter
 {
-	public function makeUser(Session $session);
+	function getRoute(/*string */ $uri);
 }
