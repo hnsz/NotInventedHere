@@ -1,8 +1,10 @@
 <?php
 class Router implements IRouter 
 {
-	public function getRoute(/*string*/ $uri) {
-		$json = file_get_contents(__DIR__.'/../conf/routingtable.json');
+    const filename = __DIR__.'/../conf/routingtable.json';
+
+    public function getRoute(/*string*/ $uri) {
+		$json = file_get_contents(self::filename);
 		$routingTable = json_decode($json,true);
 
 		$r = $routingTable["/"];

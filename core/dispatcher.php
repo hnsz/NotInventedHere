@@ -8,5 +8,8 @@ class Dispatcher
 		$uri = "/";
 		$router = new Router();
 		$route = $router->getRoute($uri);
+                
+                $acs =  new AccessControlServerAllOpen();
+                
 	}
 }
