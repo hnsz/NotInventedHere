@@ -8,12 +8,21 @@ class RouterTest extends PHPUnit_Framework_TestCase
        $data = json_decode($json, true);
        $this->assertTrue(is_array($data));
        $this->assertGreaterThanOrEqual(1, count($data));
+       
     }
     /*
      * @depends testRoutingTable 
     */
     public function testGetRoute() {
 	$r = new Router();
-        $route = $r->getRoute("test");    
+        $route = $r->getRoute("/");
+        
+        $this->assertInstanceOf(Route::class, $route);
+        $this->assertEquals($route->uri, '/');
+        $this->assertEquals($route->controller, 'default');
+        $this->assertEquals($route->model, 'default');
+        $this->assertEquals($route->view, 'default');
+        
+
     }
 }
