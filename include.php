@@ -1,20 +1,22 @@
 <?php
 define("CORE", __DIR__."/core");
 define("INTF", __DIR__."/interface");
+define("MODEL", __DIR__."/model");
 define("VIEW", __DIR__."/view");
+define("CONTROLLER", __DIR__."/controller");
 define("TMPLT", __DIR__."/template");
 
-require_once INTF.'/iuser.php';
-require_once INTF.'/irouter.php';
-require_once INTF.'/ipagecontroller.php';
-require_once INTF.'/iaccesscontrolserver.php';
 
-require_once CORE.'/dispatcher.php';
-require_once CORE.'/user.php';
-require_once CORE.'/router.php';
-require_once CORE.'/route.php';
-require_once CORE.'/accesscontrolserver.php';
-require_once CORE.'/accesscontrolserverallopen.php';
-require_once CORE.'/pagefactory.php';
+spl_autoload_register( function ($className) {
+        $classFilename = strtolower($className).".php";
+        
+        
+        $path = [CORE, INTF, MODEL, VIEW, CONTROLLER ];
+        foreach ($path as $basedir)  {
+                if( file_exists($basedir."/".$classFilename)) {
+                        require $basedir.'/'.$classFilename;
+                }
+        }
+});
 
-require_once VIEW.'/viewdefault.php';
+

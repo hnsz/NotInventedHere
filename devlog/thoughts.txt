@@ -1,0 +1,99 @@
+
+This documentation contains my thoughts on stuff i encounter.
+
+
+
+                    Switching from eclipse to newbeans was the best choice I ever made
+                    
+
+	Task 1
+
+Get a better place for this log.
+A wiki or something.
+
+
+
+	Routing Resources, Access Control and URL Rewriting
+
+Several options to create the request part of the route
+Would like to have each operation including their parameters to be a resource request that is handled as one route
+with a specific path and an Access Rule (though it could be part of a (inherited) class of rules)
+This way it's clear when a user is allowed a certain operation and when not.
+And could come in handy later for caching purposes
+
+You have an actual URI and you have the requested path that is used as the key in the routing table
+Call it for now the VirtualUri. 
+Now decide which part of the URI should become the VirtualUri.
+Option
+use the REQUEST_URI (in php $_SERVER['PHP_SELF'] and ignore the QUERY_STRING entirely
+	example: /index.php/adminpanel/editmemberaccount/examplememberx/credentials
+	easily rewritten from exmple.com/adminpanel/editmemberaccount/examplememberx/credentials
+use the REQUEST_URI for routing and still use the QUERY_STRING for some parameters 
+	this would violate the each operation has a path rule (occasionally) but it's practical
+	example: /index.php/login?pleasetakemeto=/index.php/adminpanel/editmemberaccount/examplememberx
+	  versus: /index.php/login/pleasetakemeto/index.php/adminpanel/editmemberaccount/examplememberx
+		which would be a bit silly to have to route
+	  prettified:
+		example: /login?pleasetakemeto=/adminpanel/editmemberaccount/examplememberx
+		 versus: /login/pleasetakemeto/adminpanel/editmemberaccount/examplememberx
+			on the other hand does look kind of nice
+
+                        What links should look like, what is the right order? (there isn't any)
+
+Some different looking links that point to the same thing. Should pick some convention. It really doesn't matter too much. 
+Thought there are some interesting possibilities when you get to things like search filters and function chaining
+        /member/profile/jane-doe
+        /profile/jane-doe
+        /profile/jane-doe/edit
+        /profile/jane-doe/view
+        /edit/profile/jane-doe
+        /view/profile/jane-doe
+
+        /editaccount/jane-doe/profile
+        /jane-doe/editaccount/profile
+        /editaccount/profile
+        /editaccount/self/profile
+
+        /editmemberaccount/jane-doe/profile
+        /adminpanel/editmemberaccount/jane-doe/profile (it's the way teh cookie crumbles.. or bread)
+        
+        /admin_panel/edit_member_account/jane-doe/profile
+        /admin_panel/member_account/jane-doe/profile
+        /admin_panel/member/jane-doe/edit_account/profile
+
+
+	Routing Table and URI based Access Rule List
+
+Can of worms ahaid
+Having an acces rule for each profile page isn't that much of a problem. Not yet anyway.
+Once you get more users it becomes a problem.
+With N users you have N*N access rules for viewing a profile page 
+and N rules for editing the profile page.
+That is if you use a URI like /member/examplename/profile and /member/examplename/profile/edit
+
+But with a routes file it becomes a bit tedious to manage
+Also it just not feasible on the long run. However I didn't plan to keep it this way.
+Later iterations I would like to use wildcards like star (e.g. /member/*/profile  and /member/*/profile/edit)
+A request could easily be mapped onto this pattern by the Router
+using preg_match would be be an option, str_replace would be cheaper 
+
+AccesRules depend a little bit on routes table
+They are based on the routes table and the routes table is used when the amin adds new accessrules
+For now just make a route for each user. Having rules based on wildcards in a userinterface is potentially insecure as
+an admin could get confused about what is what.
+
+Also indexing of the routes table would be an option
+
+
+	Nicknames
+Multiple users should be allowed to have the same nickname
+But there must then be an internal nickname with a number added and a cosmetic plain nickname.
+Say you have two users (johndoe@somethingmiraculous.com and johndeer@trucker.com)
+Their main unique identifier to the WEBSITE owner should be their e-mail address.
+At the same time their e-mail should remain private.
+They both should be allowed to have the same nickname (e.g. john and john)
+Their userId could be used to create a unique URI for their profile page though it would be nicer to use  their nick with an added numer to make it unique
+(e.g. for john doe /member/john/0001/profile and for john deer /member/john/0002/profile in stead of /member/00022/profile 
+and /member/02345/profile)
+
+

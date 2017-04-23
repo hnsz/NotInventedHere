@@ -1,12 +1,4 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 /**
  * Description of DispatcherTest
  *
@@ -14,9 +6,14 @@
  */
 class DispatcherTest extends PHPUnit_Framework_TestCase
 {
-    public function testRun() 
-    {
-        $dsp = new Dispatcher();
-        $dsp->run();    
-    }
+        public function testRun() 
+        {
+                $sessionStub = $this->getMockBuilder('Session')->disableOriginalConstructor()->getMock();
+                $acs =  new AccessControlServerAllOpen();
+                $user = new Admin($sessionStub);
+                $route =  new Route("/", "DefaultPageController", "DefaultPageModel", "DefaultPageView");
+                        
+                $dsp = new Dispatcher($route, $user, $acs);
+                $dsp->run();
+        }
 }
