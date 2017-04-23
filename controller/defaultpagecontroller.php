@@ -5,7 +5,9 @@ class DefaultPageController implements IController
                 $this->model = $model;
                 $this->view = $view;
         }
-        public function run($outputBuffer) {
-               fprintf($outputBuffer, "whatever"); 
+        public function run($outputStream) {
+                $webpage = $this->view->update();
+                
+                fprintf($outputStream, $webpage);
         }
 }

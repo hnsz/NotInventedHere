@@ -20,32 +20,10 @@
  */
 
 /**
- * Description of DefaultPageView
- *
  * @author hans-rudolf
  */
-class DefaultPageView implements IView, IModelListener
-{
-        public $title;
-        public $contents;
-
-        public function update()
-        {
-
-                $head = include TMPLT.'/defaulthead.php';
-                $body = include TMPLT.'/defaultbody.php';
-                $afterscript = include TMPLT.'/afterscript.php';
-
-                $htmldoc = include TMPLT.'/htmldoc.php';
-
-                return $htmldoc;
-        }
-        public function processModelEvent(IModelEvent $modelEvent)
-        {
-                if ($modelEvent->name() == "ready") {
-                        $data = $modelEvent->data();
-                        $this->title = $data->title;
-                        $this->dailyRant = $data->dailyRant;
-                }
-        }
+interface IModelEvent {
+        function __construct($name, $data);
+        public function name();
+        public function data();
 }

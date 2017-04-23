@@ -11,5 +11,5 @@
  * @author hans-rudolf
  */
 interface IView {
-        public function display();
+        public function update();
 }
