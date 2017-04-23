@@ -96,4 +96,4 @@ Their userId could be used to create a unique URI for their profile page though 
 (e.g. for john doe /member/john/0001/profile and for john deer /member/john/0002/profile in stead of /member/00022/profile 
 and /member/02345/profile)
 
-
+	Must commit more often and get more organised, work in branches
