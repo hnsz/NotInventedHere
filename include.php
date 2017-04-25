@@ -14,8 +14,10 @@ spl_autoload_register( function ($className) {
         $path = [CORE, INTF, MODEL, VIEW, CONTROLLER ];
         foreach ($path as $basedir)  {
                 if( file_exists($basedir."/".$classFilename)) {
+##DEBUG                        echo "LOADING CLASSFILE: {$basedir}/{$classFilename}\n";
                         require $basedir.'/'.$classFilename;
-                }
+##DEBUG                        echo "FINISHED LOADING CLASSFILE: {$basedir}/{$classFilename}\n";
+                 }
         }
 });
 

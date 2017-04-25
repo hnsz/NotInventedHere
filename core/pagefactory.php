@@ -13,7 +13,7 @@ class PageFactory
         return $controller;
     }
     public function errorPage(IUser $iUser, $message) {
-        $view = new ErrorPageView();
+        //$view = new ErrorPageView();
         $controller = new ErrorPageController($iUser, $message);
         
         return $controller;

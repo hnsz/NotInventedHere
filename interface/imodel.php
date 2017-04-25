@@ -11,5 +11,5 @@
  * @author hans-rudolf
  */
 interface IModel {
-        //put your code here
+        public function subscribe(IModelListener $listener);
 }

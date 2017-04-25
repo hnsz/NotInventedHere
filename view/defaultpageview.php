@@ -26,15 +26,19 @@
  */
 class DefaultPageView implements IView, IModelListener
 {
-        public $title;
-        public $contents;
+        public $headTitle = "Welcome to GoVoorbeeld";
+        public $bodyTitle = "(Almost) Daily Updates";
+        public $blogPosts;
 
-        public function update()
+        public function getUpdate()
         {
-
+//                $headTitle = $this->headTitle;
+ //              $blogPosts = $this->blogPosts;
+                
                 $head = include TMPLT.'/defaulthead.php';
                 $body = include TMPLT.'/defaultbody.php';
                 $afterscript = include TMPLT.'/afterscript.php';
+                
 
                 $htmldoc = include TMPLT.'/htmldoc.php';
 
@@ -43,9 +47,14 @@ class DefaultPageView implements IView, IModelListener
         public function processModelEvent(IModelEvent $modelEvent)
         {
                 if ($modelEvent->name() == "ready") {
-                        $data = $modelEvent->data();
-                        $this->title = $data->title;
-                        $this->dailyRant = $data->dailyRant;
+                        $this->setBlogPosts($modelEvent->data());
                 }
+        }
+        private function setBlogPosts($data)
+        {
+                $this->blogPosts = "<div>";
+                foreach ($data as $blogPost) {
+                        $this->blogPosts .= include TMPLT.'/defaultpageblogpost.php';
+                }                
         }
 }
