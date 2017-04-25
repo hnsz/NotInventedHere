@@ -24,7 +24,7 @@
  *
  * @author hans-rudolf
  */
-class DefaultPageView implements IView, IModelListener
+class DefaultPageView implements IView, IModelSubscriber
 {
         public $headTitle = "Welcome to GoVoorbeeld";
         public $bodyTitle = "(Almost) Daily Updates";

@@ -27,7 +27,7 @@ class DefaultPageModel implements IModel
 {
         public $blogPosts;
         
-        private $listeners = [];
+        private $modelSubscribers = [];
         
         public function doSomething()
         {
@@ -52,12 +52,12 @@ class DefaultPageModel implements IModel
                 ];
                 $this->publish(new ModelEvent('ready', $this->blogPosts));
         }
-        public function subscribe(\IModelListener $listener) {
-                $this->listeners[] = $listener;
+        public function subscribe(\IModelSubscriber  $modelSubscriber) {
+                $this->modelSubscribers[] = $modelSubscriber;
         }
         private function publish(\IModelEvent $event) {
-                foreach ($this->listeners as $listener) {
-                        $listener->processModelEvent($event);
+                foreach ($this->modelSubscribers as $modelSubscriber) {
+                        $modelSubscriber->processModelEvent($event);
                 }
         }
 }

@@ -21,8 +21,7 @@
 
 /**
  *
- * @author hans-rudolf
  */
-interface IModelListener {
+interface IModelSubscriber {
         public function processModelEvent(IModelEvent $event);
 }
