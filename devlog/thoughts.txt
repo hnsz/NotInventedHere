@@ -90,10 +90,43 @@ Multiple users should be allowed to have the same nickname
 But there must then be an internal nickname with a number added and a cosmetic plain nickname.
 Say you have two users (johndoe@somethingmiraculous.com and johndeer@trucker.com)
 Their main unique identifier to the WEBSITE owner should be their e-mail address.
-At the same time their e-mail should remain private.
+At the same time their e-mail should remain private. 
 They both should be allowed to have the same nickname (e.g. john and john)
 Their userId could be used to create a unique URI for their profile page though it would be nicer to use  their nick with an added numer to make it unique
 (e.g. for john doe /member/john/0001/profile and for john deer /member/john/0002/profile in stead of /member/00022/profile 
-and /member/02345/profile)
+and /member/02345/profile)'s 
 
 	Must commit more often and get more organised, work in branches
+
+Just do it
+
+
+	
+	Publish(Model)/Subcriber(View) is neat
+
+How to get it right? At the moment there is just one page that is handled by the defaultpagemodel -view and -controller. 
+A superclass that has these things and which has a general setup for generating an html page would be handy but
+the downside is that you hide some of the implementation of the templates which actually be nice to have in one overview
+It's probably much better to keep things as lateral as possible.
+Subscriber/publisher code must however be generic and therfore held in a superclass 
+Therefore a view's callback should be attached to a modelevent. 
+Right now the controller subscribes its views to the model. 
+Does the responsibility for registering callbacks lie with the controller or with the views themselves.
+
+
+
+                    Hierarchical MVC
+
+Is something for later concern. When it comes to that the question is, does a view delegate to subviews or does the controller 
+delegate to subcontrollers that in turn call their respective views. 
+Certainly it's very neat to have all these little subviews/widgets that get notified about updates in the model.
+
+
+
+                    EventHandler/EventQueue
+
+This is for way later concern. Have the views subscribe indirectly to the Model via an EventHandler. 
+Let the Model publish its Events to the EventHandler and keep a queue perhaps even with a prioritisation scheme 
+to decide in which order the events are handled and the callbacks are run.
+Would be nice for asynchronous requests and large amounts of data that need to be fed to the client with rolling updates
+You've written it down. now forget about it until it becomes relevant.. :)
