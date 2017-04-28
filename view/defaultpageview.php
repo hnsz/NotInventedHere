@@ -22,7 +22,6 @@
 /**
  * Description of DefaultPageView
  *
- * @author hans-rudolf
  */
 class DefaultPageView implements IView, IModelSubscriber
 {
@@ -32,8 +31,8 @@ class DefaultPageView implements IView, IModelSubscriber
 
         public function getUpdate()
         {
-//                $headTitle = $this->headTitle;
- //              $blogPosts = $this->blogPosts;
+//              $headTitle = $this->headTitle;
+//              $blogPosts = $this->blogPosts;
                 
                 $head = include TMPLT.'/defaulthead.php';
                 $body = include TMPLT.'/defaultbody.php';

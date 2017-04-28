@@ -5,13 +5,13 @@ class User implements IUser
     private $uId;
     private $session;
 
-    function __construct(Session $s)  {
-        $this->session = $s;
+    function __construct(Session $session)  {
+        $this->session = $session;
     }
-    public function getNick() {
+    public function nick() {
         return $this->session->get('nick');
     }
-    public function getUId() {
+    public function uId() {
         return $this->session->get('uId');
     }
 }

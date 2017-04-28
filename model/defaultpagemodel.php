@@ -39,7 +39,7 @@ class DefaultPageModel implements IModel
                                 ],
                         1=>["date"=>new DateTime("Sun, 23 Apr 2017 16:15 +0100"),
                                 "title"=>"April does what it wants.",
-                                "story"=>"I don't know what to wear. A shirt a rain coat or an anorak. But I am thankful for every bit of sunshine I receive."
+                                "story"=>"I don't know what to wear. A shirt, a rain coat or an anorak. But I am thankful for every bit of sunshine I receive."
                                 ],
                         2=>["date"=>new DateTime("Sat, 22 Apr 2017 22:04 +0100"),
                                 "title"=>"Netbeans you came into my life",
