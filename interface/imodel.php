@@ -10,6 +10,9 @@
  *
  * @author hans-rudolf
  */
-interface IModel {
-        public function subscribe(IModelSubscriber $subscriber );
+interface IModel
+{
+
+
+	public function subscribe (IModelSubscriber $subscriber);
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <META charset="utf-8">
+    <title>Welcome to GoVoorbeeld</title>
+    <link rel="stylesheet" href="default.css">
+</head>
+<body>
+<h1>(Almost) Daily Updates</h1>
+<div><div class='blogPost'>
+<h3>Small steps, steep learning curve. <span class='date'>2017-04-24 08:22:00</span>
+<p>If you have a milkshake, and I have a milkshake.</p>
+</div><div class='blogPost'>
+<h3>April does what it wants. <span class='date'>2017-04-23 16:15:00</span>
+<p>I don't know what to wear. A shirt, a rain coat or an anorak. But I am thankful for every bit of sunshine I receive.</p>
+</div><div class='blogPost'>
+<h3>Netbeans you came into my life <span class='date'>2017-04-22 22:04:00</span>
+<p>Much attention. Many tweaks. So much feature. You make me happy my little friend. I never knew I needed you until I met you.</p>
+</div><div class='blogPost'>
+<h3>Shura White Light <span class='date'>2017-04-20 17:14:00</span>
+<p>Sometimes you find a song that just catches you out of the blue. I wished I could link it to you but this but... ahh well <a href='https://www.youtube.com/watch?v=_N8mONNW_Ik'>some inline html never harmed anyone</a> right?</p>
+</div>
+</body>
+<script>
+</script>
+</html>

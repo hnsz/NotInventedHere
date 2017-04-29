@@ -22,9 +22,10 @@
 /**
  *
  */
-interface IModelSubscriber
+interface ISession
 {
-
-
-	public function processModelEvent (IModelEvent $event);
+	public function start ();
+	public function get ($key);
+	public function set ($key, $value);
+	public function getAllData();
 }

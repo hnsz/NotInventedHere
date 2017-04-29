@@ -1,5 +1,8 @@
 <?php
+
 interface IRouter
 {
-	function getRoute(/*string */ $uri);
+
+
+	function getRoute (/* string */ $uri);
 }

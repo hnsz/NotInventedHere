@@ -22,8 +22,13 @@
 /**
  * @author hans-rudolf
  */
-interface IModelEvent {
-        function __construct($name, $data);
-        public function name();
-        public function data();
+interface IModelEvent
+{
+
+
+	function __construct ($name, $data);
+
+	public function name ();
+
+	public function data ();
 }

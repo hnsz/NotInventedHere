@@ -25,19 +25,26 @@
  */
 class ModelEvent implements IModelEvent
 {
-        private $name;
-        private $data;
-        
-        function __construct($name, $data) {
-                $this->name = $name;
-                $this->data = $data;
-        }
-        public function name()
-        {
-                return $this->name;
-        }
-        public function data()
-        {
-                return $this->data;
-        }
+
+
+	private $name;
+	private $data;
+
+
+	function __construct ($name, $data) {
+		$this->name = $name;
+		$this->data = $data;
+	}
+
+
+	public function name () {
+		return $this->name;
+	}
+
+
+	public function data () {
+		return $this->data;
+	}
+
+
 }

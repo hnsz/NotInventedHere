@@ -1,4 +1,5 @@
 <?php
+
 return <<<EOT
 <!DOCTYPE html>
 <html>

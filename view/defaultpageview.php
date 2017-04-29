@@ -25,35 +25,41 @@
  */
 class DefaultPageView implements IView, IModelSubscriber
 {
-        public $headTitle = "Welcome to GoVoorbeeld";
-        public $bodyTitle = "(Almost) Daily Updates";
-        public $blogPosts;
 
-        public function getUpdate()
-        {
+
+	public $headTitle = "Welcome to GoVoorbeeld";
+	public $bodyTitle = "(Almost) Daily Updates";
+	public $blogPosts;
+
+
+	public function getUpdate () {
 //              $headTitle = $this->headTitle;
 //              $blogPosts = $this->blogPosts;
-                
-                $head = include TMPLT.'/defaulthead.php';
-                $body = include TMPLT.'/defaultbody.php';
-                $afterscript = include TMPLT.'/afterscript.php';
-                
 
-                $htmldoc = include TMPLT.'/htmldoc.php';
+		$head = include TMPLT . '/defaulthead.php';
+		$body = include TMPLT . '/defaultbody.php';
+		$afterscript = include TMPLT . '/afterscript.php';
 
-                return $htmldoc;
-        }
-        public function processModelEvent(IModelEvent $modelEvent)
-        {
-                if ($modelEvent->name() == "ready") {
-                        $this->setBlogPosts($modelEvent->data());
-                }
-        }
-        private function setBlogPosts($data)
-        {
-                $this->blogPosts = "<div>";
-                foreach ($data as $blogPost) {
-                        $this->blogPosts .= include TMPLT.'/defaultpageblogpost.php';
-                }                
-        }
+
+		$htmldoc = include TMPLT . '/htmldoc.php';
+
+		return $htmldoc;
+	}
+
+
+	public function processModelEvent (IModelEvent $modelEvent) {
+		if ($modelEvent->name () == "ready") {
+			$this->setBlogPosts ($modelEvent->data ());
+		}
+	}
+
+
+	private function setBlogPosts ($data) {
+		$this->blogPosts = "<div>";
+		foreach ($data as $blogPost) {
+			$this->blogPosts .= include TMPLT . '/defaultpageblogpost.php';
+		}
+	}
+
+
 }

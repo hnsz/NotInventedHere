@@ -1,4 +1,5 @@
 <?php
+
 return <<<EOT
 <head>
     <META charset="utf-8">

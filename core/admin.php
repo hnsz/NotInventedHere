@@ -13,10 +13,16 @@
  */
 class Admin extends User implements IUser
 {
-    function __construct(Session $session) {
-        parent::__construct($session);
-    }
-    function getNick() {
-        return "Admin";
-    }
+
+
+	function __construct (Session $session) {
+		parent::__construct ($session);
+	}
+
+
+	function getNick () {
+		return "Admin";
+	}
+
+
 }

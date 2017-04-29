@@ -19,7 +19,7 @@ MA 02110-1301  USA
 -->
 
 <!-- see http://www.phpunit.de/wiki/Documentation -->
-<phpunit bootstrap="/home/hans-rudolf/workspace/gopvoorbeeld/include.php"
+<phpunit bootstrap="/home/hans-rudolf/workspace/govoorbeeld/include.php"
          colors="false"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -27,4 +27,3 @@ MA 02110-1301  USA
          stopOnFailure="true">
 </phpunit>
 
-<phpunit colors="false" />

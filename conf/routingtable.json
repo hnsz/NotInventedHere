@@ -1,3 +1,7 @@
 {
-	"/" :{"controller":"default","model":"default","view":"default"}
+    "/": {
+        "controller": "default",
+        "model": "default",
+        "view": "default"
+    }
 }

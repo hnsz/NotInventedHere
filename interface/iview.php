@@ -10,6 +10,9 @@
  *
  * @author hans-rudolf
  */
-interface IView {
-        public function getUpdate();
+interface IView
+{
+
+
+	public function getUpdate ();
 }
