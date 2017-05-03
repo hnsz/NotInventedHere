@@ -1,4 +1,9 @@
 <?php
+/**
+ * Adapter for $_SESSION
+ * 
+ * 
+ */
 
 class Session implements ISession
 {

@@ -14,7 +14,7 @@ class PageFactory
 		$controller = new $controllerClass ($model, $view);
 
 		return $controller;
-	}
+	}	
 
 
 	public function errorPage (IUser $iUser, $message) {
