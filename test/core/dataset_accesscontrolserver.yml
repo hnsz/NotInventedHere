@@ -1,0 +1,313 @@
+## YAML Template.
+---
+#######
+#   In production, store pepper in file not in database
+######
+pepper:
+    -    pepperstring: "FKrDfv0w3B" 
+########
+#   GoUser table all types of users
+#   create view `member` as (select id, email, salt, hash, usertype, nick from gouser where usertype="G")
+#######
+gouser: 
+        -
+            id: 1
+            email: "guest@govoorbeeld.com"
+            salt: "p5pkJgiP8u"  # pepper="B" #password "0xCAFEBABE"
+            hash: "90989b65d067cd6d96a102005c5e3c021facb39ff9b21ad9c7c6e1d5dff88608"
+            usertype: "G"
+            nick: "Guest"
+        -
+            id: 2
+            email: "hans.rudolf.w@gmail.com" #i get spam 
+            salt: "sahwGv8tht"  #pepper="K" #password="iambadatpasswords"
+            hash: "bd9aa8ad5ecf08139fb8426d715a00145a9231aa7801ae3855cbfec7fed5abc5"  #sha256 <salt><pepper><password>
+            usertype: "A"
+            nick: "Superadmin"
+        -
+            id: 3
+            email: "h.fob@sysadmins.net"
+            salt: "WoSFMukt9R"  #pepper="v" #password "P3bk4cfouRLyfe"
+            hash: "fcff408f602ca84f9afadc1f3d164849e5902015d712374e0d251d0fad6084da"
+            usertype: "A"
+            nick: "Admin"
+        -
+            id: 4
+            email: "janedoe@yahoogle.com"
+            salt: "skM+4hq+9A"   #pepper="0" #password="23hPef50W14r"
+            hash: "a89ea392d2884df8358434e61572515b13d5516fd93b92d8c53a99bbb09aaf85"
+            usertype: "M"
+            nick: "Jane"
+        -
+            id: 5
+            email: "eric@gmail.com"
+            salt: "ddUgYeeCfs" #pepper="f" #password="password123"
+            hash: "cef0b0063392ae69dbd33e7b1d2c02fd415ea1e4e5b1115804867f66d496caf0"
+            usertype: "M"
+            nick: "Eric"
+########
+#   Resource
+#   List of resources, in the application identified with a unique uri
+#######
+resource: 
+    -
+        id: 1
+        uri: "/"
+    -
+        id: 2
+        uri: "/home"
+    -
+        id: 3
+        uri: "/adminpanel"
+    -
+        id: 19
+        uri: "/adminpanel/accounts/all"
+    -
+        id: 14
+        uri: "/adminpanel/accounts/member/5/eric/view"
+    -
+        id: 15
+        uri: "/adminpanel/accounts/member/5/eric/profile/edit"
+    -
+        id: 16
+        uri: "/adminpanel/accounts/member/5/eric/profile/view"
+    -
+        id: 12
+        uri: "/adminpanel/accounts/member/4/jane/view"
+    -
+        id: 7
+        uri: "/adminpanel/accounts/member/4/jane/profile/edit"
+    -
+        id: 9
+        uri: "/adminpanel/accounts/member/4/jane/profile/view"
+    -
+        id: 10
+        uri: "/adminpanel/accesscontrol/add"
+    -
+        id: 11
+        uri: "/adminpanel/accesscontrol/delete"
+    -
+        id: 8
+        uri: "/adminpanel/accounts"
+    -
+        id: 6
+        uri: "/adminpanel/accounts/member/4/jane/editcredentials"
+    -
+        id: 13
+        uri: "/adminpanel/accounts/member/5/eric/editcredentials"
+    -
+        id: 4
+        uri: "/member/5/eric/profile/view"
+    -
+        id: 17
+        uri: "/member/5/eric/profile/edit"
+    -
+        id: 18
+        uri: "/member/4/jane/profile/view"
+    -
+        id: 5
+        uri: "/member/4/jane/profile/edit"
+        
+#########
+#   AccessRuleList
+#   association table (gouser, resource)
+#   A rule is an combination of user and resource. If it is present in this table access is allowed 
+#   otherwise  access is denied.
+########
+accessrule:  
+        -
+            id: 1
+            gouser_id: 1
+            gouser_id: 1
+            resource_id: 1
+        -
+            id: 2
+            gouser_id: 1
+            resource_id: 2
+        -
+            id: 3
+            gouser_id: 1
+            resource_id: 4
+        -
+            id: 4
+            gouser_id: 1
+            resource_id: 18
+        -
+            id: 5
+            gouser_id: 2
+            resource_id: 1
+        -
+            id: 6
+            gouser_id: 2
+            resource_id: 2
+        -
+            id: 7
+            gouser_id: 2
+            resource_id: 3
+        -
+            id: 8
+            gouser_id: 2
+            resource_id: 4
+        -
+            id: 9
+            gouser_id: 2
+            resource_id: 6
+        -
+            id: 10
+            gouser_id: 2
+            resource_id: 7
+        -
+            id: 11
+            gouser_id: 2
+            resource_id: 8
+        -
+            id: 12
+            gouser_id: 2
+            resource_id: 9
+        -
+            id: 13
+            gouser_id: 2
+            resource_id: 10
+        -
+            id: 14
+            gouser_id: 2
+            resource_id: 11
+        -
+            id: 15
+            gouser_id: 2
+            resource_id: 12
+        -
+            id: 16
+            gouser_id: 2
+            resource_id: 13
+        -
+            id: 17
+            gouser_id: 2
+            resource_id: 14
+        -
+            id: 18
+            gouser_id: 2
+            resource_id: 15
+        -
+            id: 19
+            gouser_id: 2
+            resource_id: 16
+        -
+            id: 20
+            gouser_id: 2
+            resource_id: 18
+        -
+            id: 21
+            gouser_id: 3
+            resource_id: 1
+        -
+            id: 22
+            gouser_id: 3
+            resource_id: 2
+        -
+            id: 23
+            gouser_id: 3
+            resource_id: 3
+        -
+            id: 24
+            gouser_id: 3
+            resource_id: 4
+        -
+            id: 25
+            gouser_id: 3
+            resource_id: 6
+        -
+            id: 26
+            gouser_id: 3
+            resource_id: 7
+        -
+            id: 27
+            gouser_id: 3
+            resource_id: 8
+        -
+            id: 28
+            gouser_id: 3
+            resource_id: 9
+        -
+            id: 29
+            gouser_id: 3
+            resource_id: 10
+        -
+            id: 30
+            gouser_id: 3
+            resource_id: 11
+        -
+            id: 31
+            gouser_id: 3
+            resource_id: 12
+        -
+            id: 32
+            gouser_id: 3
+            resource_id: 13
+        -
+            id: 33
+            gouser_id: 3
+            resource_id: 14
+        -
+            id: 34
+            gouser_id: 3
+            resource_id: 15
+        -
+            id: 35
+            gouser_id: 3
+            resource_id: 16
+        -
+            id: 36
+            gouser_id: 3
+            resource_id: 18
+        -
+            id: 37
+            gouser_id: 4
+            resource_id: 1
+        -
+            id: 38
+            gouser_id: 4
+            resource_id: 2
+        -
+            id: 39
+            gouser_id: 4
+            resource_id: 4
+        -
+            id: 40
+            gouser_id: 4
+            resource_id: 5
+        -
+            id: 41
+            gouser_id: 4
+            resource_id: 18
+        -
+            id: 42
+            gouser_id: 5
+            resource_id: 1
+        -
+            id: 43
+            gouser_id: 5
+            resource_id: 2
+        -
+            id: 44
+            gouser_id: 5
+            resource_id: 4
+        -
+            id: 45
+            gouser_id: 5
+            resource_id: 17
+        -
+            id: 46
+            gouser_id: 5
+            resource_id: 18
+        -
+            id: 47
+            gouser_id: 2
+            resource_id: 19
+        -
+            id: 48
+            gouser_id: 3
+            resource_id: 19
+
+
+ 

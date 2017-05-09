@@ -19,11 +19,14 @@ MA 02110-1301  USA
 -->
 
 <!-- see http://www.phpunit.de/wiki/Documentation -->
-<phpunit bootstrap="/home/hans-rudolf/workspace/govoorbeeld/include.php"
+<phpunit bootstrap="/home/hans-rudolf/workspace/govoorbeeld/test/bootstrap.php"
          colors="false"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          stopOnFailure="true">
+	<php>
+		<var name="TEST_BASEDIR" value="/home/hans-rudolf/workspace/govoorbeeld/test" />
+	</php>
 </phpunit>
 
