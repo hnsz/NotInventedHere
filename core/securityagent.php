@@ -19,29 +19,33 @@
  * MA 02110-1301  USA
  */
 
-abstract class AbstractDatabaseTestCase extends PHPUnit_Extensions_Database_TestCase
-{
-	protected static $pdo = null;
-	private $dbhandle = null;
-	
-	final public function getConnection () {
-		
-		if ($this->dbhandle === null) {
-			
-			if( self::$pdo === null) {
-				$dsn = "mysql:host={$GLOBALS['dbhost']};dbname={$GLOBALS['dbname']}";
-				self::$pdo = new PDO($dsn, $GLOBALS['dbuser'], $GLOBALS['dbpassword']);
-			}
-			$this->dbhandle = $this->createDefaultDBConnection(self::$pdo);
-		}
-		return $this->dbhandle;
-	}
 /**
+ * Summary.
+ * Description of SecurityAgent
+ *
+ * @author HNSZ
+ * @param type $name Description
+ * @return type Description
+ * 
+ */
+class SecurityAgent
+{
+	private $accessControlServer;
 	
-	public function getDataSet () {
-		return new PHPUnit_Extensions_Database_DataSet_YamlDataSet(
-			__DIR__."/dataset.yml"
-			);
+	function __construct(IAccessControlServer $acs) {
+		$this->accessControlServer = $acs;
 	}
-*/
+	public function hasAccess(IUser $user, $uri) {
+		
+	}
+	public function authenticate($email, $password) {
+	}
+	public function switchUserType(IUser $before, IUser $after) {
+		// This must be the hub/gateway where usertypes switch
+		// but only one session 
+		// userfactory already inserts a session
+		// empty user, two user objects holding the same session object
+		// Session vs $_SESSION
+		// make new user here i dont even
+	}
 }

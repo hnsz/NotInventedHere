@@ -27,5 +27,8 @@ interface ISession
 	public function start ();
 	public function get ($key);
 	public function set ($key, $value);
-	public function getAllData();
+	public function getData($keys=null);
+	public function swapData($newData);
+	public function refresh(DateTime $expiration);
+	
 }

@@ -27,6 +27,11 @@ MA 02110-1301  USA
          stopOnFailure="true">
 	<php>
 		<var name="TEST_BASEDIR" value="/home/hans-rudolf/workspace/govoorbeeld/test" />
+                                        <var name="dbhost" value="localhost" />
+                                        <var name="dbname" value="go_testdb_memory" />
+                                        <var name="dbuser" value="tester" />
+                                        <var name="dbpassword" value="test123" />
+                                        <!-- <var name="" value="" /> -->
 	</php>
 </phpunit>
 
