@@ -4,20 +4,20 @@ interface IAccessControlServer
 {
 	/**
 	 * 
-	 * @param PDO $dbhandle
+	 * @param PDO $pdo
 	 */
-	function __construct(PDO $dbhandle);
+	function __construct(PDO $pdo);
 	/**
 	 * hasAccess
-	 * does a user have access to a specific route
-	 * @param IUser $user
-	 * @param Route $route
+	 * does a user have access to a resource identified by a uri
+	 * @param $userId
+	 * @param $uri
 	 */
 	public function hasAccess ($userId, $uri);
 	/**
-	 * getAccessRules
+	 * getWhitelist
 	 * a list of access rules for a user
-	 * @param IUser $user
+	 * @param $userId
 	 */
-	public function getAccessRules($userId);	
+	public function getWhitelist($userId);	
 }

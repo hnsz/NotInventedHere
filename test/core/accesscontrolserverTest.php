@@ -4,8 +4,6 @@
  */
 class AccessControlServerTest extends AbstractDatabaseTestCase
 {
-
-
 	/**
 	 * @var AccessControlServer
 	 */
@@ -19,7 +17,6 @@ class AccessControlServerTest extends AbstractDatabaseTestCase
 	protected function setUp () {
 		parent::setUp();
 		$this->object = new AccessControlServer(parent::$pdo);
-		
 	}
 
 	/**
@@ -29,23 +26,33 @@ class AccessControlServerTest extends AbstractDatabaseTestCase
 	protected function tearDown () {
 		
 	}
-
-
 	/**
-	 * @dataProvider accessDataProvider
+	 * @dataProvider getWhitelistDataProvider
+	 * @covers AccessControlServer::getWhitelist
+	 */
+	public function testGetWhitelist($userId, $expected) {
+		$actual = $this->object->getWhitelist($userId);
+		$this->assertEquals($expected, $actual);
+	}
+	public function getWhitelistDataProvider() {
+		return include __DIR__.'/providerdata_whitelist.php';
+	}
+	/**
+	 * @dataProvider hasAccessDataProvider
 	 * @covers AccessControlServer::hasAccess
-	 * @todo   Implement testHasAccess().
 	 */
 	public function testHasAccess ($gouser_id, $uri, $expected) {
 		$this->assertEquals($expected, $this->object->hasAccess($gouser_id, $uri));
 	}
-	public function accessDataProvider() {
+	public function hasAccessDataProvider() {
 		return include __DIR__.'/providerdata_hasaccess.php';
 	}
-        public function getDataSet () {
-                return new PHPUnit_Extensions_Database_DataSet_YamlDataSet(
-                        __DIR__."/dataset_accesscontrolserver.yml"
-                        );
-        }
+	public function getDataSet () {
+		return new PHPUnit_Extensions_Database_DataSet_YamlDataSet(
+			__DIR__."/dataset_accesscontrolserver.yml"
+			);
+	}
+		
+		
 
 }

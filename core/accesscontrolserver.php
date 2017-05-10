@@ -1,11 +1,6 @@
 <?php
-
 class AccessControlServer implements IAccessControlServer
 {
-	/**
-	 * 
-	 * @param PDO $dbhandle
-	 */
 	private  $pdo;
 	function __construct (PDO $pdo) {
 		$this->pdo = $pdo;
@@ -21,10 +16,13 @@ class AccessControlServer implements IAccessControlServer
 			return true;
 		}
 	}
-
-
-	public function getAccessRules ($userId) {
-		return [false, false];
+	public function getWhitelist ($userId) {
+		$sql = 'select uri from accessrule left join resource on resource.id = resource_id where gouser_id=? order by uri asc;';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute([$userId]);
+		
+		return $stmt->fetchAll(PDO::FETCH_COLUMN);
+		
 	}
 
 
