@@ -1,15 +1,10 @@
 <?php
 /**
- * Represents a user of anytype.
- *
- * 
- * @todo This should maybe be changed into a trait.
- */
-class User implements IUser
+ * Represents a abstract user .
+*/
+abstract class AUser implements IUser
 {
-
-	/**
-	 *
+	 /**
 	 * @var string 
 	 * @var int
 	 * @var Session
@@ -41,6 +36,4 @@ class User implements IUser
 	public function uId () {
 		return $this->session->get ('uId');
 	}
-
-
 }

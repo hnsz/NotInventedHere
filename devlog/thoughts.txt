@@ -130,3 +130,14 @@ Let the Model publish its Events to the EventHandler and keep a queue perhaps ev
 to decide in which order the events are handled and the callbacks are run.
 Would be nice for asynchronous requests and large amounts of data that need to be fed to the client with rolling updates
 You've written it down. now forget about it until it becomes relevant.. :)
+
+                    Session
+Encapsulate $_SESSION in Session
+Have an oppertunity to store data in Session before session_start (is there a point to this or is it just bug prone?)
+Merge data from $_SESSION and Session once you start but replace values from $_SESSION if they have been altered in Session
+Put data back in session before write close 
+Checkout serialisation 
+Memcached is easy setup
+You start the session before you start output, before you use its data
+You always have to start session before you create a user, so very early on in the script. 
+But its better to have such an object injected. forcing that is better.

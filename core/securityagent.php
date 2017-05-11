@@ -40,7 +40,15 @@ class SecurityAgent
 	}
 	public function authenticate($email, $password) {
 	}
-	public function switchUserType(IUser $before, IUser $after) {
+	public function switchToUser($userData, IUser $currentUser) {
+		// makeuserfrom authenticationdata
+		//  let factory do the elsifs
+		//  
+		// copy  session and (filtered) sessiondata or just reset sessiondata\
+		//  refresh session
+		// destroy old user, maybe store stuff that needs storing
+		//
+		
 		// This must be the hub/gateway where usertypes switch
 		// but only one session 
 		// userfactory already inserts a session

@@ -30,5 +30,4 @@ interface ISession
 	public function getData($keys=null);
 	public function swapData($newData);
 	public function refresh(DateTime $expiration);
-	
 }
