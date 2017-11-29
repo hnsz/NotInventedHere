@@ -9,5 +9,5 @@ Een simpele databaseapplicatie mysql/php, in zelfgeschreven code. Analyse en ont
 + ![docslogo] [Sequence Diagrams](https://docs.google.com/document/d/1_kvD0Gq3H2jrLG6_eKqwCRVwF699pJPjczT4qKNwpvM/edit?usp=sharing "google docs")
 
 
-[docslogo]: http://www.iconsfind.com/wp-content/uploads/2014/02/20140211_52f9ba16c64f91.png
+[docslogo]: https://github.com/hnsz/NotInventedHere/blob/master/miscellaneous/docslogo.png?raw=true
 
